@@ -1,0 +1,19 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+sourceCompatibility = 1.8
+
+mainClassName = 'eu.lestard.shopexample.backend.App'
+
+
+dependencies {
+
+    compile 'org.springframework.security:spring-security-core:4.2.2.RELEASE'
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa:1.5.3.RELEASE'
+    compile 'org.springframework.boot:spring-boot-starter-data-rest:1.5.3.RELEASE'
+
+    compile 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.8.8'
+
+    compile 'com.h2database:h2:1.4.195'
+    compile 'com.github.javafaker:javafaker:0.13'
+}

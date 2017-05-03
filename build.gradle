@@ -1,0 +1,11 @@
+group 'eu.lestard'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'base'
+
+subprojects {
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+}
