@@ -1,4 +1,5 @@
 rootProject.name = 'shop-example'
 
 include 'shop-backend'
+include 'shop-frontend-angular-redux'
 
