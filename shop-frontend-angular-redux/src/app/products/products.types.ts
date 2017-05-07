@@ -1,0 +1,45 @@
+import {URI, ID, Href} from '../common-types';
+
+
+
+export type Product = {
+    id: ID,
+    name: string,
+    description: string,
+    image: URI,
+    price: number,
+    categories: Array<ID>,
+}
+
+export type ProductRestResponse = {
+  name: string,
+  description: string,
+  imageUrl: URI,
+  price: number,
+  _links: {
+    self: Href,
+    product: Href,
+    productCategories: Array<Href>,
+    categories: Href
+  }
+}
+
+export type ProductCategory = {
+    id: ID,
+    name: string,
+}
+
+
+export type ProductCategoryRestResponse = {
+  name: string,
+  _links: {
+    self: Href,
+    productCategory: Href,
+    products: Href
+  }
+}
+
+export type ProductsState = {
+    products: Array<Product>,
+    productCategories: Array<ProductCategory>
+}
