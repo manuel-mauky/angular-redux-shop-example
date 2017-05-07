@@ -1,11 +1,14 @@
 package eu.lestard.shopexample.backend.data;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Entity;
 
 @Entity
 public class User extends BaseEntity {
 
 	private String username;
+	@JsonIgnore
 	private String passwordHash;
 
 
