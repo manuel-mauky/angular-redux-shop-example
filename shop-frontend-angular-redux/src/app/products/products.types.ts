@@ -1,4 +1,4 @@
-import {URI, ID, Href} from '../common-types';
+import { URI, ID, Href, IdMap } from '../common-types';
 
 
 
@@ -8,7 +8,7 @@ export type Product = {
     description: string,
     image: URI,
     price: number,
-    categories: Array<ID>,
+    categoryIds: Array<ID>,
 }
 
 export type ProductRestResponse = {
@@ -40,6 +40,8 @@ export type ProductCategoryRestResponse = {
 }
 
 export type ProductsState = {
-    products: Array<Product>,
-    productCategories: Array<ProductCategory>
+    products: IdMap<Product>,
+    productCategories: IdMap<ProductCategory>,
+    loadingProducts: boolean,
+    loadingCategories: boolean,
 }

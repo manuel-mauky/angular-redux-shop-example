@@ -10,6 +10,9 @@ import { ProductOverviewComponent } from './components/product-overview/product-
     providers: [
         ProductsActionCreators,
     ],
+    exports: [
+      ProductOverviewComponent
+    ],
     declarations: [ProductOverviewComponent]
 })
 export class ProductsModule {

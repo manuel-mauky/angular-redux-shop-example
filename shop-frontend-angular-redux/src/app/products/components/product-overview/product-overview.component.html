@@ -1,3 +1,7 @@
-<p>
-  product-overview works!
-</p>
+<h1>Products</h1>
+
+<p *ngIf="loading |async">Loading</p>
+
+<ul *ngFor="let product of products | async">
+    <li>item: {{ product.name }}</li>
+</ul>
