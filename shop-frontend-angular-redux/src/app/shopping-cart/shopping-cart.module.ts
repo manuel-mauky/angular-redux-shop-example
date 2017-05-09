@@ -10,6 +10,9 @@ import { ShoppingCartViewComponent } from './components/shopping-cart-view/shopp
     providers: [
         ShoppingCartActionCreators,
     ],
+    exports: [
+        ShoppingCartViewComponent,
+    ],
     declarations: [ShoppingCartViewComponent]
 })
 export class ShoppingCartModule {
