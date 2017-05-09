@@ -15,7 +15,7 @@ import { AppState } from '../../../appstate.types';
 export class ProductOverviewComponent implements OnInit {
 
     @select(allProducts)
-    public products: Observable<Array<Product>>
+    public products: Observable<Array<ProductWithFullCategories>>
 
     @select(isLoading)
     public loading: Observable<boolean>

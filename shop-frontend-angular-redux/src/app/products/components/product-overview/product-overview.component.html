@@ -1,8 +1,8 @@
 <h1>Products</h1>
 
-
-<ul *ngFor="let product of products | async">
-    <li>item: {{ product.name }}</li>
-</ul>
+<div *ngFor="let product of products | async">
+    <app-product-list-item [product]="product">
+    </app-product-list-item>
+</div>
 
 <p *ngIf="loading | async">Loading</p>
