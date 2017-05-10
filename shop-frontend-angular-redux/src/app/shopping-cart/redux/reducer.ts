@@ -1,18 +1,24 @@
-
-
 import { ShoppingCartState } from '../types';
 import { Reducer } from 'redux';
-import { Action } from '@types/flux-standard-action';
-import { ADD_ITEM_TO_SHOPPING_CART, REMOVE_ITEM_FROM_SHOPPING_CART } from "./action-creators.service";
-import { tassign } from "tassign/lib/index";
+import { tassign } from "tassign";
+import {
+    AddItemToShoppingCartAction, RemoveItemFromShoppingCartAction,
+    ADD_ITEM_TO_SHOPPING_CART, REMOVE_ITEM_FROM_SHOPPING_CART
+} from './action-types';
 
 export const shoppingCartInitialState: ShoppingCartState = {
     productsInCart: []
 }
 
-export const shoppingCartReducer: Reducer<ShoppingCartState> = (state = shoppingCartInitialState, action: Action<any>) => {
-    switch(action.type) {
-        case ADD_ITEM_TO_SHOPPING_CART: {
+
+type ShoppingCartAction =
+    AddItemToShoppingCartAction |
+    RemoveItemFromShoppingCartAction
+
+
+export const shoppingCartReducer: Reducer<ShoppingCartState> = (state = shoppingCartInitialState, action: ShoppingCartAction) => {
+    switch (action.type) {
+        case 'ADD_ITEM_TO_SHOPPING_CART': {
             let productId = action.payload.productId;
 
             if (state.productsInCart.includes(productId)) {
@@ -35,7 +41,7 @@ export const shoppingCartReducer: Reducer<ShoppingCartState> = (state = shopping
                 return state;
             }
         }
-
-        default: return state;
     }
+
+    return state;
 }

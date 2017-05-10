@@ -2,10 +2,8 @@ import { Injectable } from '@angular/core';
 import { Product } from "../../products/products.types";
 import { AppState } from "../../appstate.types";
 import { NgRedux } from "@angular-redux/store/lib/src/components/ng-redux";
+import { ADD_ITEM_TO_SHOPPING_CART, REMOVE_ITEM_FROM_SHOPPING_CART } from './action-types';
 
-
-export const ADD_ITEM_TO_SHOPPING_CART = 'ADD_ITEM_TO_SHOPPING_CART'
-export const REMOVE_ITEM_FROM_SHOPPING_CART = 'REMOVE_ITEM_FROM_SHOPPING_CART'
 
 @Injectable()
 export class ShoppingCartActionCreators {

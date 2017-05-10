@@ -1,6 +1,5 @@
 import {
     ProductsState,
-    ProductCategory,
     ProductCategoryRestResponse,
     ProductRestResponse,
     Product
@@ -11,10 +10,12 @@ import {
     LOAD_PRODUCTS_START, LOAD_PRODUCTS_FAILED, LOAD_PRODUCT_CATEGORIES_START, LOAD_PRODUCT_CATEGORIES_FAILED
 } from "./action-creators.service";
 import { tassign } from "tassign";
-import { Href, IdMap } from "../../common-types";
-import { Action } from '@types/flux-standard-action';
-import { clearModulesForTest } from '@angular/core/src/linker/ng_module_factory_loader';
+import { Href } from "../../common-types";
 import { arrayToIdMap } from '../../common';
+import {
+    LoadProductsStartAction, LoadProductsFailedAction, LoadProductsFinishedAction,
+    LoadProductCategoriesStartAction, LoadProductCategoriesFailedAction, LoadProductCategoriesFinishedAction
+} from "./action-types";
 
 
 export const productsInitialState: ProductsState = {
@@ -24,8 +25,15 @@ export const productsInitialState: ProductsState = {
     loadingCategories: false
 }
 
-export const productsReducer: Reducer<ProductsState> = (state: ProductsState = productsInitialState, action: Action<any>) => {
+type ProductsAction =
+    LoadProductsStartAction |
+        LoadProductsFailedAction |
+        LoadProductsFinishedAction |
+        LoadProductCategoriesStartAction |
+        LoadProductCategoriesFailedAction |
+        LoadProductCategoriesFinishedAction
 
+export const productsReducer: Reducer<ProductsState> = (state: ProductsState = productsInitialState, action: ProductsAction) => {
     switch (action.type) {
         case LOAD_PRODUCT_CATEGORIES_START: {
             return tassign(state, {
@@ -82,7 +90,7 @@ export const productsReducer: Reducer<ProductsState> = (state: ProductsState = p
                     categoryIds: []
                 }
 
-                if(productJson._links.productCategories) {
+                if (productJson._links.productCategories) {
                     result.categoryIds = productJson._links.productCategories.map((link: Href) => link.href);
                 }
 
@@ -96,7 +104,7 @@ export const productsReducer: Reducer<ProductsState> = (state: ProductsState = p
                 loadingProducts: false,
             })
         }
-
-        default: return state;
     }
+
+    return state;
 }
