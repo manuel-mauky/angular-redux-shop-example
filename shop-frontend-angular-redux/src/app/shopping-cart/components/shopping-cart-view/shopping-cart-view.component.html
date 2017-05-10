@@ -1,3 +1,10 @@
-<p>
-  shopping-cart-view works!
-</p>
+<h1>Shopping Cart</h1>
+
+<ul>
+    <li *ngFor="let product of products | async">
+        <div>
+            <p>{{product.name}}</p>
+            <button (click)="removeFromCart(product)">Remove</button>
+        </div>
+    </li>
+</ul>

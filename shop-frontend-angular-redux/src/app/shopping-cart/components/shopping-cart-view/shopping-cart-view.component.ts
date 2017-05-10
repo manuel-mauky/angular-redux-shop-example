@@ -1,15 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Observable } from "rxjs/Rx";
+import { Product } from "../../../products/products.types";
+import { select } from "@angular-redux/store/lib/src/decorators/select";
+import { productsInCart } from "../../redux/selectors";
+import { ShoppingCartActionCreators } from "../../redux/action-creators.service";
 
 @Component({
-  selector: 'app-shopping-cart-view',
-  templateUrl: './shopping-cart-view.component.html',
-  styleUrls: ['./shopping-cart-view.component.css']
+    selector: 'app-shopping-cart-view',
+    templateUrl: './shopping-cart-view.component.html',
+    styleUrls: ['./shopping-cart-view.component.css']
 })
-export class ShoppingCartViewComponent implements OnInit {
+export class ShoppingCartViewComponent {
 
-  constructor() { }
+    @select(productsInCart)
+    public products:Observable<Array<Product>>;
 
-  ngOnInit() {
-  }
+    constructor(private shoppingCartActionCreators:ShoppingCartActionCreators) {
+    }
 
+    public removeFromCart(product:Product) {
+        this.shoppingCartActionCreators.removeItemFromShoppingCart(product);
+    }
 }

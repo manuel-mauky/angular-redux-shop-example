@@ -9,7 +9,10 @@ export type Product = {
     image: URI,
     price: number,
     categoryIds: Array<ID>,
+}
 
+export type ProductWithFullCategories = Product & {
+    categories: Array<ProductCategory>
 }
 
 export type ProductRestResponse = {

@@ -1,7 +1,5 @@
-
-
 import { AppState } from '../../appstate.types';
-import { ProductsState, Product, ProductCategory } from '../products.types';
+import { ProductsState, Product, ProductWithFullCategories } from '../products.types';
 import  * as R from 'ramda';
 import { IdMap } from '../../common-types';
 
@@ -17,10 +15,6 @@ export function isLoading(state: AppState): boolean {
 }
 
 
-export type ProductWithFullCategories = Product & {
-    categories: Array<ProductCategory>
-}
-
 export function allProducts(state: AppState): Array<ProductWithFullCategories> {
     const productsState = getProductsState(state);
 
@@ -29,7 +23,7 @@ export function allProducts(state: AppState): Array<ProductWithFullCategories> {
 
 
     return R.values(products).map(product => {
-        let productWithCategories:ProductWithFullCategories = {...product, categories: []};
+        let productWithCategories = {...product, categories:[]};
 
         product.categoryIds.map(id => {
             productWithCategories.categories.push(categories[id]);
