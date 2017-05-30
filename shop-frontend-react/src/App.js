@@ -1,19 +1,25 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from "./Header";
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap-theme.css';
+import ProductsOverview from "./products/ProductsOverview";
+import ShoppingCartView from "./shopping-cart/ShoppingCartView";
+import {Route, BrowserRouter as Router} from "react-router-dom";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Router>
+          <div>
+              <Header />
+
+              <div className="container">
+                  <Route exact path="/" component={ProductsOverview} />
+                  <Route path="/products" component={ProductsOverview} />
+                  <Route path="/shopping-cart" component={ShoppingCartView} />
+              </div>
+          </div>
+      </Router>
     );
   }
 }
