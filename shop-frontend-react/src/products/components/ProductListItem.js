@@ -1,8 +1,9 @@
 // @flow
 
 import React from 'react'
-import {ProductWithFullCategories} from "./product.types";
+import {ProductWithFullCategories} from "../products.types";
 
+import './ProductListItem.css'
 
 type Props = {
     product: ProductWithFullCategories,

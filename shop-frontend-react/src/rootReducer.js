@@ -1,15 +1,17 @@
 // @flow
 
-import {AppState} from "./AppState.types";
-import { initialState as productsInitialState } from './products/reducer'
-import { initialState as shoppingCartInitialState } from './shopping-cart/reducer'
+import {AppState} from "./appstate.types";
+import {initialState as productsInitialState, ProductsReducer} from './products/reducer'
+import {initialState as shoppingCartInitialState, ShoppingCartReducer} from './shopping-cart/reducer'
+import {combineReducers} from "redux";
 
 
 export const initialState: AppState = {
-    productState: productsInitialState,
-    shoppingCartState: shoppingCartInitialState,
+    products: productsInitialState,
+    shoppingCart: shoppingCartInitialState,
 }
 
-export const rootReducer = (state:any = initialState, action: any) => {
-    return state;
-}
+export const rootReducer = combineReducers({
+    products: ProductsReducer,
+    shoppingCart: ShoppingCartReducer,
+})

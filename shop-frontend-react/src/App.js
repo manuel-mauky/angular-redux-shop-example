@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import Header from "./Header";
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
-import ProductsOverview from "./products/ProductsOverview";
-import ShoppingCartView from "./shopping-cart/ShoppingCartView";
+import ProductsOverview from "./products/components/ProductsOverview";
+import ShoppingCartView from "./shopping-cart/components/ShoppingCartView";
 import {Route, BrowserRouter as Router} from "react-router-dom";
 
 class App extends Component {
