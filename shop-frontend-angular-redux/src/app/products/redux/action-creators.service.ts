@@ -2,15 +2,14 @@ import { Injectable } from '@angular/core';
 import { Http } from "@angular/http";
 import { NgRedux } from '@angular-redux/store';
 import { AppState } from '../../appstate.types';
-
-export const LOAD_PRODUCTS_START = 'LOAD_PRODUCTS_START';
-export const LOAD_PRODUCTS_FINISHED = 'LOAD_PRODUCTS_FINISHED';
-export const LOAD_PRODUCTS_FAILED = 'LOAD_PRODUCTS_FAILED';
-
-
-export const LOAD_PRODUCT_CATEGORIES_START = 'LOAD_PRODUCT_CATEGORIES_START';
-export const LOAD_PRODUCT_CATEGORIES_FINISHED = 'LOAD_PRODUCT_CATEGORIES_FINISHED';
-export const LOAD_PRODUCT_CATEGORIES_FAILED = 'LOAD_PRODUCT_CATEGORIES_FAILED';
+import {
+    LOAD_PRODUCT_CATEGORIES_FAILED,
+    LOAD_PRODUCT_CATEGORIES_FINISHED,
+    LOAD_PRODUCT_CATEGORIES_START,
+    LOAD_PRODUCTS_FAILED,
+    LOAD_PRODUCTS_FINISHED,
+    LOAD_PRODUCTS_START
+} from './action-types';
 
 @Injectable()
 export class ProductsActionCreators {

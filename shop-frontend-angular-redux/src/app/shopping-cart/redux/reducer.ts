@@ -18,7 +18,7 @@ type ShoppingCartAction =
 
 export const shoppingCartReducer: Reducer<ShoppingCartState> = (state = shoppingCartInitialState, action: ShoppingCartAction) => {
     switch (action.type) {
-        case 'ADD_ITEM_TO_SHOPPING_CART': {
+        case ADD_ITEM_TO_SHOPPING_CART: {
             let productId = action.payload.productId;
 
             if (state.productsInCart.includes(productId)) {
