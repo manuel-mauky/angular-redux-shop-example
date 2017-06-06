@@ -1,0 +1,15 @@
+.root-container {
+    width: 500px;
+}
+
+.content-container {
+    display: flex;
+}
+
+.content-container div {
+    margin-left: 10px;
+}
+
+.product-image {
+    width: 200px;
+}

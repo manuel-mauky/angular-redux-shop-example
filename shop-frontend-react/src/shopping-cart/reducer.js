@@ -1,22 +1,25 @@
-import { ShoppingCartState } from '../types';
-import { Reducer } from 'redux';
-import { tassign } from "tassign";
-import {
-    AddItemToShoppingCartAction, RemoveItemFromShoppingCartAction,
-    ADD_ITEM_TO_SHOPPING_CART, REMOVE_ITEM_FROM_SHOPPING_CART
-} from './action-types';
+// @flow
 
-export const shoppingCartInitialState: ShoppingCartState = {
+import type {ShoppingCartState} from "./shopping-cart.types";
+import {
+    ADD_ITEM_TO_SHOPPING_CART,
+    REMOVE_ITEM_FROM_SHOPPING_CART,
+} from './action-types'
+import type {
+    AddItemToShoppingCartAction,
+    RemoveItemFromShoppingCartAction
+} from "./action-types";
+
+
+export const initialState: ShoppingCartState = {
     productsInCart: []
 }
-
 
 type ShoppingCartAction =
     AddItemToShoppingCartAction |
     RemoveItemFromShoppingCartAction
 
-
-export const shoppingCartReducer: Reducer<ShoppingCartState> = (state = shoppingCartInitialState, action: ShoppingCartAction) => {
+export const ShoppingCartReducer = (state: ShoppingCartState = initialState, action: any) => {
     switch (action.type) {
         case ADD_ITEM_TO_SHOPPING_CART: {
             let productId = action.payload.productId;
@@ -24,9 +27,10 @@ export const shoppingCartReducer: Reducer<ShoppingCartState> = (state = shopping
             if (state.productsInCart.includes(productId)) {
                 return state;
             } else {
-                return tassign(state, {
+                return {
+                    ...state,
                     productsInCart: [...state.productsInCart, productId]
-                })
+                }
             }
         }
 
@@ -34,14 +38,14 @@ export const shoppingCartReducer: Reducer<ShoppingCartState> = (state = shopping
             let productId = action.payload.productId;
 
             if (state.productsInCart.includes(productId)) {
-                return tassign(state, {
-                    productsInCart: state.productsInCart.filter(id => id != productId)
-                })
+                return {
+                    ...state,
+                    productsInCart: state.productsInCart.filter(id => id !== productId)
+                }
             } else {
                 return state;
             }
         }
+        default: return state;
     }
-
-    return state;
 }
