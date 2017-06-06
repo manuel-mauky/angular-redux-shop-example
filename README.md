@@ -1,4 +1,19 @@
-# Angular + Redux Example
+# Example for Redux with Angular and React
+
+## Howto Start the Example
+
+To start the rest server run:
+`./gradlew run`
+This needs an installed Java Environment.
+
+### Angular
+`cd shop-frontend-angular-redux`
+`npm start`
+
+### React
+`cd shop-frontend-react`
+`npm start`
+
 
 ## Libraries and Frameworks
 This repository contains an example application using [Angular 4](https://angular.io/) with
