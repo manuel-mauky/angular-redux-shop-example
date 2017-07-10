@@ -8,7 +8,7 @@ import { Reducer } from "redux";
 import {
     LOAD_PRODUCT_CATEGORIES_FINISHED, LOAD_PRODUCTS_FINISHED,
     LOAD_PRODUCTS_START, LOAD_PRODUCTS_FAILED, LOAD_PRODUCT_CATEGORIES_START, LOAD_PRODUCT_CATEGORIES_FAILED
-} from "./action-creators.service";
+} from "./action-types";
 import { tassign } from "tassign";
 import { Href } from "../../common-types";
 import { arrayToIdMap } from '../../common';
