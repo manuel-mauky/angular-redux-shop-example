@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { ShoppingCartActionCreators } from "../../../shopping-cart/redux/action-creators.service";
+//import { ShoppingCartActionCreators } from "../../../shopping-cart/redux/action-creators.service";
 import { ProductWithFullCategories } from "../../products.types";
 
 @Component({
@@ -12,11 +12,11 @@ export class ProductListItemComponent {
     @Input()
     public product:ProductWithFullCategories
 
-    constructor(private shoppingCartActionCreators:ShoppingCartActionCreators) {
-    }
+    // constructor(private shoppingCartActionCreators:ShoppingCartActionCreators) {
+    // }
 
     public addToCart():void {
-        this.shoppingCartActionCreators.addItemToShoppingCart(this.product);
+//        this.shoppingCartActionCreators.addItemToShoppingCart(this.product);
     }
 
 }

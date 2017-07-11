@@ -1,15 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProductsActionCreators } from './redux/action-creators.service';
+import {ProductActions, ProductCategoryActions} from './api/actions';
+import { ProductsService } from './api/service';
+import {ProductComponentEpics} from './api/epics'
 import { ProductOverviewComponent } from './components/product-overview/product-overview.component';
 import { ProductListItemComponent } from './components/product-list-item/product-list-item.component';
+import {StoreModule} from "../store/module";
 
 @NgModule({
     imports: [
-        CommonModule
+        CommonModule, StoreModule
     ],
     providers: [
-        ProductsActionCreators,
+        ProductsService, ProductActions, ProductCategoryActions, ProductComponentEpics
     ],
     exports: [
       ProductOverviewComponent

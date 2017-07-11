@@ -44,8 +44,11 @@ export type ProductCategoryRestResponse = {
 }
 
 export type ProductsState = {
-    products: IdMap<Product>,
-    productCategories: IdMap<ProductCategory>,
-    loadingProducts: boolean,
-    loadingCategories: boolean,
+    entities: IdMap<Product>,
+    loading: boolean
+}
+
+export type ProductCategoriesState = {
+    entities: IdMap<ProductCategory>,
+    loading: boolean
 }

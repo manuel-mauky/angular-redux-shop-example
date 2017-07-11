@@ -2,5 +2,6 @@ rootProject.name = 'shop-example'
 
 include 'shop-backend'
 include 'shop-frontend-angular-redux'
+include 'shop-frontend-angular-ngrx'
 include 'shop-frontend-react'
 
