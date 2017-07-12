@@ -1,4 +1,4 @@
-import { URI, ID, Href, IdMap } from '../common-types';
+import { URI, ID, Href, IdMap } from '../../model/common-types';
 
 
 

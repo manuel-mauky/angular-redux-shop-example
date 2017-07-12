@@ -1,14 +1,13 @@
 
 
-import { AppState } from "../../store/model";
-import { Product } from "../../products/products.types";
-import { ShoppingCartState } from "../types";
-import { getProductsState } from "../../products/api/selectors";
+import { AppState } from "../../../store/model";
+import { Product } from "../../../products/model/products.types";
+import { ShoppingCartState } from "../shoppingcart.types";
+import { getProductsState } from "../../../products/model/redux/api/selectors";
 
 
 export function getShoppingCartState(state: AppState): ShoppingCartState {
-    //return state.shoppingCart;
-    return {productsInCart: []};
+    return state.shoppingCart;
 }
 
 export function productsInCart(state: AppState): Array<Product> {

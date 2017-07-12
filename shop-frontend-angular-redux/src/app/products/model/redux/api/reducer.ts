@@ -1,11 +1,11 @@
 import {
     ProductsState,
     Product, ProductCategory, ProductCategoriesState
-} from "../products.types";
+} from "../../products.types";
 import {Reducer, combineReducers} from "redux";
 import {ProductActions, ProductAPIAction, ProductCategoryActions, ProductCategoryAPIAction} from "./actions";
 import { tassign } from "tassign";
-import { arrayToIdMap } from '../../common';
+import { arrayToIdMap } from '../../../../common';
 
 const INITIAL_PRODUCTS_STATE: ProductsState = {
     entities: {},
@@ -20,7 +20,7 @@ const INITIAL_PRODUCTCATEGORIES_STATE: ProductCategoriesState = {
 export const PRODUCTCOMPONENT_INITIALSTATE = {
     products: INITIAL_PRODUCTS_STATE,
     productCategories: INITIAL_PRODUCTCATEGORIES_STATE
-}
+};
 
 const productsReducer: Reducer<ProductsState> = (state: ProductsState = INITIAL_PRODUCTS_STATE, action: ProductAPIAction) => {
     switch (action.type) {

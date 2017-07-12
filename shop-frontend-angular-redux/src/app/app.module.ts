@@ -6,9 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { ProductsModule } from './products/products.module';
 import { StoreModule } from './store/module';
-import { RouterModule } from '@angular/router';
-//import { ShoppingCartModule } from "./shopping-cart/shopping-cart.module";
-import { appRoutes } from "./routes";
+import { RoutingModule } from "./routing.module";
 import {GlobalErrorHandler} from './utils/globalerrorhandler';
 
 @NgModule({
@@ -20,11 +18,10 @@ import {GlobalErrorHandler} from './utils/globalerrorhandler';
         FormsModule,
         HttpModule,
         ProductsModule,
-        //ShoppingCartModule,
+        RoutingModule,
         StoreModule,
-        RouterModule.forRoot(appRoutes),
     ],
-    providers: [{provide: ErrorHandler, useClass: GlobalErrorHandler}],
+    providers: [{provide: ErrorHandler, useClass: GlobalErrorHandler} ],
     bootstrap: [AppComponent]
 })
 export class AppModule {

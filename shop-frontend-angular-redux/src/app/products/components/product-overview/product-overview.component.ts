@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { select } from '@angular-redux/store';
 
-import { allProducts, isLoading } from '../../api/selectors'
-import { ProductWithFullCategories } from "../../products.types";
-import {ProductActions, ProductCategoryActions} from "../../api/actions";
+import { allProducts, isLoading } from '../../model/redux/api/selectors'
+import { ProductWithFullCategories } from "../../model/products.types";
+import {ProductActions, ProductCategoryActions} from "../../model/redux/api/actions";
 
 @Component({
     selector: 'app-product-overview',

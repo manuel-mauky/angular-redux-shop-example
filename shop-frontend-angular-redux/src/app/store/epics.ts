@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ProductComponentEpics } from '../products/api/epics';
+import { ProductComponentEpics } from '../products/model/redux/api/epics';
 
 @Injectable()
 export class RootEpics {

@@ -6,10 +6,10 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/startWith';
 
-import {} from '../products.types';
+import {} from '../../products.types';
 import {ProductActions, ProductAPIAction, ProductCategoryActions, ProductCategoryAPIAction} from './actions';
 import {ProductsService} from './service';
-import {AppState} from "../../store/model";
+import {AppState} from "../../../../store/model";
 
 @Injectable()
 export class ProductComponentEpics {

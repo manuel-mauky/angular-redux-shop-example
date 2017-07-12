@@ -1,4 +1,4 @@
-import { ID } from '../common-types';
+import { ID } from '../../model/common-types';
 
 
 export type ShoppingCartState = {

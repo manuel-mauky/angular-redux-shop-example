@@ -1,21 +1,22 @@
 import {NgModule} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {ProductActions, ProductCategoryActions} from './api/actions';
-import { ProductsService } from './api/service';
-import {ProductComponentEpics} from './api/epics'
+import {ProductActions, ProductCategoryActions} from './model/redux/api/actions';
+import { ProductsService } from './model/redux/api/service';
+import {ProductComponentEpics} from './model/redux/api/epics'
 import { ProductOverviewComponent } from './components/product-overview/product-overview.component';
 import { ProductListItemComponent } from './components/product-list-item/product-list-item.component';
-import {StoreModule} from "../store/module";
+import {ShoppingCartActions} from "../shopping-cart/model/redux/actions";
+import {ProductsRoutingModule} from "./products.routing-modul";
 
 @NgModule({
     imports: [
-        CommonModule, StoreModule
+        CommonModule, ProductsRoutingModule
     ],
     providers: [
-        ProductsService, ProductActions, ProductCategoryActions, ProductComponentEpics
+        ProductsService, ProductActions, ProductCategoryActions, ProductComponentEpics, ShoppingCartActions
     ],
     exports: [
-      ProductOverviewComponent
+      //ProductOverviewComponent
     ],
     declarations: [
         ProductOverviewComponent,
