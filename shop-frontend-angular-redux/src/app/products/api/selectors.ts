@@ -18,10 +18,8 @@ export function isLoading(state: AppState): boolean {
 
 
 export function allProducts(state: AppState): Array<ProductWithFullCategories> {
-
-    let products: IdMap<Product> = getProductsState(state).entities;
-    let categories = getProcutCategoriesState(state).entities;
-
+    const products: IdMap<Product> = getProductsState(state).entities;
+    const categories = getProcutCategoriesState(state).entities;
 
     return R.values(products).map(product => {
         let productWithCategories = {...product, categories:[]};

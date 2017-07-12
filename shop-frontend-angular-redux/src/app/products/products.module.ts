@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {ProductActions, ProductCategoryActions} from './api/actions';
 import { ProductsService } from './api/service';
@@ -22,5 +22,5 @@ import {StoreModule} from "../store/module";
         ProductListItemComponent,
     ]
 })
-export class ProductsModule {
+export class ProductsModule{
 }

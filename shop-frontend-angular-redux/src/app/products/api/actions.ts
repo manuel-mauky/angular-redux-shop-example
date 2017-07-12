@@ -1,4 +1,4 @@
-import {ProductRestResponse, ProductCategoryRestResponse, Product, ProductCategory} from "../products.types";
+import {Product, ProductCategory} from "../products.types";
 import {Injectable} from '@angular/core';
 import {dispatch} from '@angular-redux/store';
 import {FluxStandardAction} from 'flux-standard-action';

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
@@ -9,6 +9,7 @@ import { StoreModule } from './store/module';
 import { RouterModule } from '@angular/router';
 //import { ShoppingCartModule } from "./shopping-cart/shopping-cart.module";
 import { appRoutes } from "./routes";
+import {GlobalErrorHandler} from './utils/globalerrorhandler';
 
 @NgModule({
     declarations: [
@@ -23,7 +24,7 @@ import { appRoutes } from "./routes";
         StoreModule,
         RouterModule.forRoot(appRoutes),
     ],
-    providers: [],
+    providers: [{provide: ErrorHandler, useClass: GlobalErrorHandler}],
     bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -3,7 +3,6 @@ import { Observable } from 'rxjs';
 import { select } from '@angular-redux/store';
 
 import { allProducts, isLoading } from '../../api/selectors'
-import { ProductsService } from '../../api/service';
 import { ProductWithFullCategories } from "../../products.types";
 import {ProductActions, ProductCategoryActions} from "../../api/actions";
 
@@ -12,7 +11,7 @@ import {ProductActions, ProductCategoryActions} from "../../api/actions";
     templateUrl: './product-overview.component.html',
     styleUrls: ['./product-overview.component.css']
 })
-export class ProductOverviewComponent implements OnInit {
+export class ProductOverviewComponent implements OnInit{
 
     @select(allProducts)
     public products: Observable<Array<ProductWithFullCategories>>
@@ -23,9 +22,8 @@ export class ProductOverviewComponent implements OnInit {
     constructor(private productActions: ProductActions, private productCategoriesActions: ProductCategoryActions) {
     }
 
-    ngOnInit() {
+    ngOnInit(): void {
         this.productActions.loadProducts();
-        this.productCategoriesActions.loadProductCategories()
+        this.productCategoriesActions.loadProductCategories();
     }
-
 }
