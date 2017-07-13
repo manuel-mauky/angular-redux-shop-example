@@ -18,3 +18,7 @@ export function productsInCart(state: AppState): Array<Product> {
 
     return productIds.map(id => productsState.entities[id])
 }
+
+export function productsInCartCount(state: AppState): number {
+    return productsInCart(state).length;
+}
