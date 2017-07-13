@@ -5,7 +5,7 @@ import {
 import {Reducer, combineReducers} from "redux";
 import {ProductActions, ProductAPIAction, ProductCategoryActions, ProductCategoryAPIAction} from "./actions";
 import { tassign } from "tassign";
-import { arrayToIdMap } from '../../../../common';
+import { arrayToIdMap } from '../../../../utils/common';
 
 const INITIAL_PRODUCTS_STATE: ProductsState = {
     entities: {},
