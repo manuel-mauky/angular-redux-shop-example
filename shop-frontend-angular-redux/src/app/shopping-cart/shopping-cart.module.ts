@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ShoppingCartActionCreators } from './redux/action-creators.service';
 import { ShoppingCartViewComponent } from './components/shopping-cart-view/shopping-cart-view.component';
+import {ShoppingCartActions} from "./store/actions";
+import {ShoppingCartRoutingModule} from "./shopping-cart.routing-module";
 
 @NgModule({
     imports: [
-        CommonModule
+        CommonModule, ShoppingCartRoutingModule
     ],
     providers: [
-        ShoppingCartActionCreators,
+        ShoppingCartActions,
     ],
     exports: [
-        ShoppingCartViewComponent,
     ],
     declarations: [ShoppingCartViewComponent]
 })

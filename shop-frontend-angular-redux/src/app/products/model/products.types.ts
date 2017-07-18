@@ -1,6 +1,4 @@
-import { URI, ID, Href, IdMap } from '../common-types';
-
-
+import { URI, ID, Href} from '../../model/common-types';
 
 export type Product = {
     id: ID,
@@ -41,11 +39,4 @@ export type ProductCategoryRestResponse = {
     productCategory: Href,
     products: Href
   }
-}
-
-export type ProductsState = {
-    products: IdMap<Product>,
-    productCategories: IdMap<ProductCategory>,
-    loadingProducts: boolean,
-    loadingCategories: boolean,
 }

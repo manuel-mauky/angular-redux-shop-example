@@ -1,6 +1,6 @@
 
 
-import { IdMap } from './common-types';
+import { IdMap } from '../model/common-types';
 
 
 

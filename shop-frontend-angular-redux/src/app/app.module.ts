@@ -1,15 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { ProductsModule } from './products/products.module';
-import { StoreModule } from './store.module';
-import { RouterModule } from '@angular/router';
-import { ProductOverviewComponent } from './products/components/product-overview/product-overview.component';
-import { ShoppingCartModule } from "./shopping-cart/shopping-cart.module";
-import { ShoppingCartViewComponent } from "./shopping-cart/components/shopping-cart-view/shopping-cart-view.component";
+import { StoreModule } from './store/module';
+import { RoutingModule } from "./routing.module";
+import {GlobalErrorHandler} from './utils/globalerrorhandler';
 
 @NgModule({
     declarations: [
@@ -20,15 +18,10 @@ import { ShoppingCartViewComponent } from "./shopping-cart/components/shopping-c
         FormsModule,
         HttpModule,
         ProductsModule,
-        ShoppingCartModule,
+        RoutingModule,
         StoreModule,
-        RouterModule.forRoot([
-            {path: '', component: ProductOverviewComponent},
-            {path: 'products', component: ProductOverviewComponent},
-            {path: 'shoppingcart', component: ShoppingCartViewComponent}
-        ]),
     ],
-    providers: [],
+    providers: [{provide: ErrorHandler, useClass: GlobalErrorHandler} ],
     bootstrap: [AppComponent]
 })
 export class AppModule {

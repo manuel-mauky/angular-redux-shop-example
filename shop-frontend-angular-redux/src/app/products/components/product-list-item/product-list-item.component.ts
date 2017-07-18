@@ -1,6 +1,6 @@
 import { Component, Input } from "@angular/core";
-import { ShoppingCartActionCreators } from "../../../shopping-cart/redux/action-creators.service";
-import { ProductWithFullCategories } from "../../products.types";
+import { ProductWithFullCategories } from "../../model/products.types";
+import {ShoppingCartActions} from "../../../shopping-cart/store/actions";
 
 @Component({
     selector: 'app-product-list-item',
@@ -12,11 +12,10 @@ export class ProductListItemComponent {
     @Input()
     public product:ProductWithFullCategories
 
-    constructor(private shoppingCartActionCreators:ShoppingCartActionCreators) {
-    }
+    constructor(private shoppingCartActions:ShoppingCartActions) {}
 
     public addToCart():void {
-        this.shoppingCartActionCreators.addItemToShoppingCart(this.product);
+        this.shoppingCartActions.addItemToShoppingCart(this.product);
     }
 
 }
