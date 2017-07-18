@@ -11,4 +11,8 @@ import {Observable} from "rxjs/Observable";
 export class AppComponent {
     @select(productsInCartCount)
     public shoppingCartCount: Observable<number>;
+
+    constructor(){
+        console.log("TEST")
+    }
 }

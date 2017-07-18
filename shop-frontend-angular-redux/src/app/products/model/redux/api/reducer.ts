@@ -1,11 +1,22 @@
-import {
-    ProductsState,
-    Product, ProductCategory, ProductCategoriesState
-} from "../../products.types";
+import { Product, ProductCategory } from "../../products.types";
 import {Reducer, combineReducers} from "redux";
-import {ProductActions, ProductAPIAction, ProductCategoryActions, ProductCategoryAPIAction} from "./actions";
-import { tassign } from "tassign";
+import {
+    ProductAction, ProductActions,
+    ProductCategoryAction, ProductCategoryActions
+} from "./actions";
+import {assign}  from 'lodash';
 import { arrayToIdMap } from '../../../../utils/common';
+import {IdMap} from "../../../../model/common-types";
+
+export type ProductsState = {
+    entities: IdMap<Product>,
+    loading: boolean
+}
+
+export type ProductCategoriesState = {
+    entities: IdMap<ProductCategory>,
+    loading: boolean
+}
 
 const INITIAL_PRODUCTS_STATE: ProductsState = {
     entities: {},
@@ -22,53 +33,52 @@ export const PRODUCTCOMPONENT_INITIALSTATE = {
     productCategories: INITIAL_PRODUCTCATEGORIES_STATE
 };
 
-const productsReducer: Reducer<ProductsState> = (state: ProductsState = INITIAL_PRODUCTS_STATE, action: ProductAPIAction) => {
+const productsReducer: Reducer<ProductsState> = (state: ProductsState = INITIAL_PRODUCTS_STATE, action: ProductAction) => {
     switch (action.type) {
-        case ProductActions.LOAD_PRODUCTS_STARTED: {
-            return tassign(state, {
-                loading: true
-            })
+        case ProductActions.LOAD_PRODUCTS: {
+            let nextState = assign({}, state);
+            nextState.loading = true;
+            return nextState;
         }
         case ProductActions.LOAD_PRODUCTS_FAILED: {
-            return tassign(state, {
-                loading: false
-            })
+            let nextState = assign({}, state);
+            nextState.loading = false;
+            return nextState;
         }
         case ProductActions.LOAD_PRODUCTS_SUCCEEDED: {
+            let nextState = assign({}, state);
             const productList: Array<Product> = action.payload;
             const productsMap = arrayToIdMap(productList);
-            return tassign(state, {
-                entities: tassign(state.entities, productsMap),
-                loading: false,
-            })
+            nextState.loading = false;
+            nextState.entities = productsMap;
+            return nextState;
         }
     }
 
     return state;
 };
 
-const productsCategoriesReducer: Reducer<ProductCategoriesState> = (state: ProductCategoriesState = INITIAL_PRODUCTCATEGORIES_STATE, action: ProductCategoryAPIAction) => {
+const productsCategoriesReducer: Reducer<ProductCategoriesState> = (state: ProductCategoriesState = INITIAL_PRODUCTCATEGORIES_STATE, action: ProductCategoryAction) => {
     switch (action.type) {
         case ProductCategoryActions.LOAD_PRODUCT_CATEGORIES_STARTED: {
-            return tassign(state, {
-                loading: true
-            })
+            let nextState = assign({}, state);
+            nextState.loading = true;
+            return nextState;
         }
         case ProductCategoryActions.LOAD_PRODUCT_CATEGORIES_FAILED: {
-            return tassign(state, {
-                loading: false
-            })
+            let nextState = assign({}, state);
+            nextState.loading = false;
+            return nextState;
         }
         case ProductCategoryActions.LOAD_PRODUCT_CATEGORIES_SUCCEEDED: {
             const productCategories: Array<ProductCategory> = action.payload;
             let categoryMap = arrayToIdMap(productCategories);
-            return tassign(state, {
-                entities: tassign(state.entities, categoryMap),
-                loading: false,
-            });
+            let nextState = assign({}, state);
+            nextState.loading = false;
+            nextState.entities = categoryMap;
+            return nextState;
         }
     }
-
     return state;
 };
 

@@ -1,9 +1,7 @@
-
-
 import { AppState } from "../../../store/model";
 import { Product } from "../../../products/model/products.types";
-import { ShoppingCartState } from "../shoppingcart.types";
 import { getProductsState } from "../../../products/model/redux/api/selectors";
+import {ShoppingCartState} from "./reducer";
 
 
 export function getShoppingCartState(state: AppState): ShoppingCartState {

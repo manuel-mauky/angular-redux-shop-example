@@ -12,7 +12,6 @@ import {ShoppingCartRoutingModule} from "./shopping-cart.routing-module";
         ShoppingCartActions,
     ],
     exports: [
-        //ShoppingCartViewComponent,
     ],
     declarations: [ShoppingCartViewComponent]
 })

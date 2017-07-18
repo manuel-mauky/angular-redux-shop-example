@@ -15,9 +15,7 @@ import {ProductsRoutingModule} from "./products.routing-modul";
     providers: [
         ProductsService, ProductActions, ProductCategoryActions, ProductComponentEpics, ShoppingCartActions
     ],
-    exports: [
-      //ProductOverviewComponent
-    ],
+    exports: [],
     declarations: [
         ProductOverviewComponent,
         ProductListItemComponent,

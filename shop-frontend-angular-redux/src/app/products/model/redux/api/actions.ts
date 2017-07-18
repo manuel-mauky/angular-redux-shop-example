@@ -1,10 +1,11 @@
 import {Product, ProductCategory} from "../../products.types";
 import {Injectable} from '@angular/core';
 import {dispatch} from '@angular-redux/store';
-import {FluxStandardAction} from 'flux-standard-action';
 
-export type ProductAPIAction = FluxStandardAction<Product[], any>;
-export type ProductCategoryAPIAction = FluxStandardAction<ProductCategory[], any>;
+export class ProductAction implements Action<Product[]>{
+    type: string;
+    payload: Product[];
+}
 
 @Injectable()
 export class ProductActions {
@@ -14,30 +15,30 @@ export class ProductActions {
     static readonly LOAD_PRODUCTS_FAILED = 'LOAD_PRODUCTS_FAILED';
 
     @dispatch()
-    loadProducts = (): ProductAPIAction => ({
+    loadProducts = (): ProductAction => ({
         type: ProductActions.LOAD_PRODUCTS,
-        meta: null,
         payload: null
     });
 
-    loadStarted = (): ProductAPIAction => ({
+    loadStarted = (): ProductAction => ({
         type: ProductActions.LOAD_PRODUCTS_STARTED,
-        meta: null,
         payload: null
     });
 
-    loadSucceeded = (payload: Product[]): ProductAPIAction => ({
+    loadSucceeded = (payload: Product[]): ProductAction => ({
         type: ProductActions.LOAD_PRODUCTS_SUCCEEDED,
-        meta: null,
         payload: payload
     });
 
-    loadFailed = (error): ProductAPIAction => ({
+    loadFailed = (error): ProductAction => ({
         type: ProductActions.LOAD_PRODUCTS_FAILED,
-        meta: null,
-        payload: null,
-        error
+        payload: null
     });
+}
+
+export class ProductCategoryAction implements Action<ProductCategory[]> {
+    type: string;
+    payload: ProductCategory[];
 }
 
 @Injectable()
@@ -48,29 +49,24 @@ export class ProductCategoryActions {
     static readonly LOAD_PRODUCT_CATEGORIES_FAILED = 'LOAD_PRODUCT_CATEGORIES_FAILED';
 
     @dispatch()
-    loadProductCategories = (): ProductCategoryAPIAction => ({
+    loadProductCategories = (): ProductCategoryAction => ({
         type: ProductCategoryActions.LOAD_PRODUCT_CATEGORIES,
-        meta: null,
         payload: null
     });
 
-    loadStarted = (): ProductCategoryAPIAction => ({
+    loadStarted = (): ProductCategoryAction => ({
         type: ProductCategoryActions.LOAD_PRODUCT_CATEGORIES_STARTED,
-        meta: null,
         payload: null
     });
 
-    loadSucceeded = (payload: ProductCategory[]): ProductCategoryAPIAction => ({
+    loadSucceeded = (payload: ProductCategory[]): ProductCategoryAction => ({
         type: ProductCategoryActions.LOAD_PRODUCT_CATEGORIES_SUCCEEDED,
-        meta: null,
         payload: payload
     });
 
-    loadFailed = (error): ProductCategoryAPIAction => ({
+    loadFailed = (error): ProductCategoryAction => ({
         type: ProductCategoryActions.LOAD_PRODUCT_CATEGORIES_FAILED,
-        meta: null,
-        payload: null,
-        error
+        payload: null
     });
 }
 

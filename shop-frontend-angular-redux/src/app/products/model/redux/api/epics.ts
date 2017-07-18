@@ -7,14 +7,16 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/startWith';
 
 import {} from '../../products.types';
-import {ProductActions, ProductAPIAction, ProductCategoryActions, ProductCategoryAPIAction} from './actions';
+import {
+    ProductActions, ProductAction, ProductCategoryActions,
+    ProductCategoryAction
+} from './actions';
 import {ProductsService} from './service';
 import {AppState} from "../../../../store/model";
 
 @Injectable()
 export class ProductComponentEpics {
-    constructor( private service: ProductsService, private productsActions: ProductActions, private productCategoryActions: ProductCategoryActions){
-
+    constructor(private service: ProductsService, private productsActions: ProductActions, private productCategoryActions: ProductCategoryActions){
     }
 
     public createEpics()
@@ -25,7 +27,7 @@ export class ProductComponentEpics {
         ];
     }
 
-    private createLoadProductsEpic(): Epic<ProductAPIAction, AppState> {
+    private createLoadProductsEpic(): Epic<ProductAction, AppState> {
         return (action$, store) => action$
             .ofType(ProductActions.LOAD_PRODUCTS)
             .switchMap(() => this.service.loadProducts())
@@ -34,7 +36,7 @@ export class ProductComponentEpics {
             .startWith(this.productsActions.loadStarted());
     }
 
-    private createLoadProductCategoriesEpic(): Epic<ProductCategoryAPIAction, AppState> {
+    private createLoadProductCategoriesEpic(): Epic<ProductCategoryAction, AppState> {
         return (action$, store) => action$
             .ofType(ProductCategoryActions.LOAD_PRODUCT_CATEGORIES)
             .switchMap(() => this.service.loadProductCategories())

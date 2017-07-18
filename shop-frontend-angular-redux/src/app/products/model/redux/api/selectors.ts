@@ -1,7 +1,8 @@
 import { AppState } from '../../../../store/model';
-import {ProductsState, Product, ProductWithFullCategories, ProductCategoriesState} from '../../products.types';
+import { Product, ProductWithFullCategories} from '../../products.types';
 import  * as R from 'ramda';
 import { IdMap } from '../../../../model/common-types';
+import {ProductCategoriesState, ProductsState} from "./reducer";
 
 export function getProductsState(state: AppState): ProductsState {
     return state.productComponent.products;
