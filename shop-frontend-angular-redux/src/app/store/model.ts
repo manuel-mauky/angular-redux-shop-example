@@ -1,6 +1,6 @@
 import { RouterState } from '@angular/router';
-import {ProductCategoriesState, ProductsState} from "../products/model/redux/api/reducer";
-import {ShoppingCartState} from "../shopping-cart/model/redux/reducer";
+import {ProductCategoriesState, ProductsState} from "../products/store/api/reducer";
+import {ShoppingCartState} from "../shopping-cart/store/reducer";
 
 export type AppState = {
     productComponent: {products: ProductsState, productCategories: ProductCategoriesState}

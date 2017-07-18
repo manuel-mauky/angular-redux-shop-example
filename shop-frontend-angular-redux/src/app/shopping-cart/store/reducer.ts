@@ -1,7 +1,7 @@
 import { Reducer } from 'redux';
 import { tassign } from "tassign";
 import { ShoppingCartActions, ShoppingCartAction} from './actions';
-import {ID} from "../../../model/common-types";
+import {ID} from "../../model/common-types";
 
 export type ShoppingCartState = {
     productsInCart: Array<ID>,

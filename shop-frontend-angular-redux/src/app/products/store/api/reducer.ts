@@ -1,12 +1,12 @@
-import { Product, ProductCategory } from "../../products.types";
+import { Product, ProductCategory } from "../../model/products.types";
 import {Reducer, combineReducers} from "redux";
 import {
     ProductAction, ProductActions,
     ProductCategoryAction, ProductCategoryActions
 } from "./actions";
 import {assign}  from 'lodash';
-import { arrayToIdMap } from '../../../../utils/common';
-import {IdMap} from "../../../../model/common-types";
+import { arrayToIdMap } from '../../../utils/common';
+import {IdMap} from "../../../model/common-types";
 
 export type ProductsState = {
     entities: IdMap<Product>,

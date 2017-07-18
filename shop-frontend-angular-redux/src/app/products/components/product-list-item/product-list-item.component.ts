@@ -1,6 +1,6 @@
 import { Component, Input } from "@angular/core";
 import { ProductWithFullCategories } from "../../model/products.types";
-import {ShoppingCartActions} from "../../../shopping-cart/model/redux/actions";
+import {ShoppingCartActions} from "../../../shopping-cart/store/actions";
 
 @Component({
     selector: 'app-product-list-item',

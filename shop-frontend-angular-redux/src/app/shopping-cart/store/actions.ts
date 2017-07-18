@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {dispatch} from "@angular-redux/store";
-import {Product} from "../../../products/model/products.types";
+import {Product} from "../../products/model/products.types";
 
 export class ShoppingCartAction implements Action<Product> {
     type: string | symbol;

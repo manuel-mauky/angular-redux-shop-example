@@ -1,6 +1,6 @@
-import { AppState } from "../../../store/model";
-import { Product } from "../../../products/model/products.types";
-import { getProductsState } from "../../../products/model/redux/api/selectors";
+import { AppState } from "../../store/model";
+import { Product } from "../../products/model/products.types";
+import { getProductsState } from "../../products/store/api/selectors";
 import {ShoppingCartState} from "./reducer";
 
 

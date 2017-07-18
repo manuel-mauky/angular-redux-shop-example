@@ -3,8 +3,8 @@ import { Http } from "@angular/http";
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
-import {Product, ProductCategory, ProductCategoryRestResponse, ProductRestResponse} from '../../products.types';
-import { Href } from "../../../../model/common-types";
+import {Product, ProductCategory, ProductCategoryRestResponse, ProductRestResponse} from '../../model/products.types';
+import { Href } from "../../../model/common-types";
 
 @Injectable()
 export class ProductsService {

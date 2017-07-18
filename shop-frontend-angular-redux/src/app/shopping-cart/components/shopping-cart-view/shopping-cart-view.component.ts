@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { Observable } from "rxjs/Rx";
 import { Product } from "../../../products/model/products.types";
 import { select } from "@angular-redux/store/lib/src/decorators/select";
-import { productsInCart } from "../../model/redux/selectors";
-import {ShoppingCartActions} from "../../model/redux/actions";
+import { productsInCart } from "../../store/selectors";
+import {ShoppingCartActions} from "../../store/actions";
 
 @Component({
     selector: 'app-shopping-cart-view',

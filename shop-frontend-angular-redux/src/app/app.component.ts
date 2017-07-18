@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {select} from "@angular-redux/store";
-import {productsInCartCount} from "./shopping-cart/model/redux/selectors";
+import {productsInCartCount} from "./shopping-cart/store/selectors";
 import {Observable} from "rxjs/Observable";
 
 @Component({
