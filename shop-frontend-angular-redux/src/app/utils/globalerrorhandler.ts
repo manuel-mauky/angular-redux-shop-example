@@ -1,5 +1,4 @@
 import {ErrorHandler, Injectable} from "@angular/core";
-import {} from 'sourcemapped-stacktrace'
 
 @Injectable()
 export class GlobalErrorHandler extends ErrorHandler {
