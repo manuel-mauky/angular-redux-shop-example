@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {Observable} from 'rxjs/Rx';
-import {Product} from '../../../products/model/products.types';
+import {Product} from '../../../model/products.types';
 import {select} from '@angular-redux/store/lib/src/decorators/select';
 import {productsInCart} from '../../store/selectors';
 import {ShoppingCartActions} from '../../store/actions';

@@ -1,4 +1,4 @@
-import {Product, ProductCategory} from '../../model/products.types';
+import {Product, ProductCategory} from '../../../model/products.types';
 import {combineReducers, Reducer} from 'redux';
 import {ProductAction, ProductActions, ProductCategoryAction, ProductCategoryActions} from './actions';
 import {assign} from 'lodash';

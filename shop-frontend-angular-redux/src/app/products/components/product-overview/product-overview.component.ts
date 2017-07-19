@@ -3,8 +3,9 @@ import {Observable} from 'rxjs';
 import {select} from '@angular-redux/store';
 
 import {allProducts, isLoading} from '../../store/api/selectors';
-import {ProductWithFullCategories} from '../../model/products.types';
+import {Product, ProductWithFullCategories} from '../../../model/products.types'
 import {ProductActions, ProductCategoryActions} from '../../store/api/actions';
+import {ShoppingCartActions} from '../../../shopping-cart/store/actions'
 
 @Component({
     selector: 'app-product-overview',
@@ -19,11 +20,15 @@ export class ProductOverviewComponent implements OnInit {
     @select(isLoading)
     public loading: Observable<boolean>;
 
-    constructor(private productActions: ProductActions, private productCategoriesActions: ProductCategoryActions) {
+    constructor(private productActions: ProductActions, private productCategoriesActions: ProductCategoryActions, private shoppingCartActions: ShoppingCartActions) {
     }
 
     ngOnInit(): void {
         this.productActions.loadProducts();
         this.productCategoriesActions.loadProductCategories();
+    }
+
+    public addToCart(product: Product) {
+        this.shoppingCartActions.addItemToShoppingCart(product);
     }
 }

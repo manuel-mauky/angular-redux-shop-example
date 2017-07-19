@@ -1,5 +1,5 @@
 import {AppState} from '../../store/model';
-import {Product} from '../../products/model/products.types';
+import {Product} from '../../model/products.types';
 import {getProductsState} from '../../products/store/api/selectors';
 import {ShoppingCartState} from './reducer';
 

@@ -1,5 +1,5 @@
 import {AppState} from '../../../store/model';
-import {Product, ProductWithFullCategories} from '../../model/products.types';
+import {Product, ProductWithFullCategories} from '../../../model/products.types';
 import * as R from 'ramda';
 import {IdMap} from '../../../model/common-types';
 import {ProductCategoriesState, ProductsState} from './reducer';

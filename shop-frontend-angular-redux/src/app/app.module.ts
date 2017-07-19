@@ -8,6 +8,7 @@ import {ProductsModule} from './products/products.module';
 import {StoreModule} from './store/module';
 import {RoutingModule} from './routing.module';
 import {GlobalErrorHandler} from './utils/globalerrorhandler';
+import {SharedModule} from './shared.module/shared.module'
 
 @NgModule({
     declarations: [
@@ -19,7 +20,7 @@ import {GlobalErrorHandler} from './utils/globalerrorhandler';
         HttpModule,
         ProductsModule,
         RoutingModule,
-        StoreModule,
+        StoreModule
     ],
     providers: [{provide: ErrorHandler, useClass: GlobalErrorHandler}],
     bootstrap: [AppComponent]

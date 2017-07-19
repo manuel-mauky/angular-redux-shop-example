@@ -1,10 +1,10 @@
-<h1>Shopping Cart</h1>
+<div><h1>Shopping Cart</h1>
 
-<ul>
-    <li *ngFor="let product of products | async">
-        <div>
-            <p>{{product.name}}</p>
-            <button (click)="removeFromCart(product)">Remove</button>
-        </div>
-    </li>
-</ul>
+    <ul class="list-unstyled">
+        <li *ngFor="let product of products | async">
+            <app-product-item [product]="product" [collapsed]="true">
+                <button class="btn btn-primary" (click)="removeFromCart(product)">Remove</button>
+            </app-product-item>
+        </li>
+    </ul>
+</div>

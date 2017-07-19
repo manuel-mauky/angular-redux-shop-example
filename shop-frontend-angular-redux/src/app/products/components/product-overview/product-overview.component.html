@@ -1,8 +1,9 @@
 <h1>Products</h1>
 
 <div *ngFor="let product of products | async">
-    <app-product-list-item [product]="product">
-    </app-product-list-item>
+    <app-product-item [product]="product">
+        <button class="btn btn-primary" (click)="addToCart(product)">Add to Cart</button>
+    </app-product-item>
 </div>
 
 <p *ngIf="loading | async">Loading</p>

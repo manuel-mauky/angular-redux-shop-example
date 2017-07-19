@@ -1,4 +1,4 @@
-import {Href, ID, URI} from '../../model/common-types';
+import {Href, ID, URI} from './common-types';
 
 export type Product = {
     id: ID,
