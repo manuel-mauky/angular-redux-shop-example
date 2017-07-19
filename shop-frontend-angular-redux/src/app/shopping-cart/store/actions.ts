@@ -1,6 +1,6 @@
-import {Injectable} from "@angular/core";
-import {dispatch} from "@angular-redux/store";
-import {Product} from "../../products/model/products.types";
+import {Injectable} from '@angular/core';
+import {dispatch} from '@angular-redux/store';
+import {Product} from '../../products/model/products.types';
 
 export class ShoppingCartAction implements Action<Product> {
     type: string | symbol;
@@ -16,11 +16,11 @@ export class ShoppingCartActions {
     addItemToShoppingCart = (product: Product): ShoppingCartAction => ({
         type: ShoppingCartActions.ADD_ITEM_TO_SHOPPING_CART,
         payload: product
-    });
+    })
 
     @dispatch()
     removeItemFromShoppingCart = (product: Product): ShoppingCartAction => ({
         type: ShoppingCartActions.REMOVE_ITEM_FROM_SHOPPING_CART,
         payload: product
-    });
+    })
 }

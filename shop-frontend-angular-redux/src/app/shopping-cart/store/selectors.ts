@@ -1,7 +1,7 @@
-import { AppState } from "../../store/model";
-import { Product } from "../../products/model/products.types";
-import { getProductsState } from "../../products/store/api/selectors";
-import {ShoppingCartState} from "./reducer";
+import {AppState} from '../../store/model';
+import {Product} from '../../products/model/products.types';
+import {getProductsState} from '../../products/store/api/selectors';
+import {ShoppingCartState} from './reducer';
 
 
 export function getShoppingCartState(state: AppState): ShoppingCartState {
@@ -14,7 +14,7 @@ export function productsInCart(state: AppState): Array<Product> {
 
     const productIds = shoppingCartState.productsInCart;
 
-    return productIds.map(id => productsState.entities[id])
+    return productIds.map(id => productsState.entities[id]);
 }
 
 export function productsInCartCount(state: AppState): number {

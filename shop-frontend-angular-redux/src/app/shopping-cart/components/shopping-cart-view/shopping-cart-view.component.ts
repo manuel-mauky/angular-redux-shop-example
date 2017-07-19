@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { Observable } from "rxjs/Rx";
-import { Product } from "../../../products/model/products.types";
-import { select } from "@angular-redux/store/lib/src/decorators/select";
-import { productsInCart } from "../../store/selectors";
-import {ShoppingCartActions} from "../../store/actions";
+import {Component} from '@angular/core';
+import {Observable} from 'rxjs/Rx';
+import {Product} from '../../../products/model/products.types';
+import {select} from '@angular-redux/store/lib/src/decorators/select';
+import {productsInCart} from '../../store/selectors';
+import {ShoppingCartActions} from '../../store/actions';
 
 @Component({
     selector: 'app-shopping-cart-view',
@@ -13,13 +13,13 @@ import {ShoppingCartActions} from "../../store/actions";
 export class ShoppingCartViewComponent {
 
     @select(productsInCart)
-    public products:Observable<Array<Product>>;
+    public products: Observable<Array<Product>>;
 
     constructor(private shoppingCartActions: ShoppingCartActions) {
-        console.log("Shopping-Cart Component created");
+        console.log('Shopping-Cart Component created');
     }
 
-    public removeFromCart(product:Product) {
+    public removeFromCart(product: Product) {
         this.shoppingCartActions.removeItemFromShoppingCart(product);
     }
 }
