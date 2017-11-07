@@ -2,6 +2,11 @@
     width: 500px;
 }
 
+.root-container .panel-heading .row {
+    display: flex;
+    align-items: center;
+}
+
 .content-container {
     display: flex;
 }

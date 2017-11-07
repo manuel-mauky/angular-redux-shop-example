@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
-import { Http } from "@angular/http";
-import { Observable } from 'rxjs/Observable';
+import {Injectable} from '@angular/core';
+import {Http} from '@angular/http';
+import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
-import {Product, ProductCategory, ProductCategoryRestResponse, ProductRestResponse} from '../../model/products.types';
-import { Href } from "../../../model/common-types";
+import {Product, ProductCategory, ProductCategoryRestResponse, ProductRestResponse} from '../../../model/products.types';
+import {Href} from '../../../model/common-types';
 
 @Injectable()
 export class ProductsService {
@@ -19,7 +19,7 @@ export class ProductsService {
                 const productResponses: Array<ProductRestResponse> = response._embedded.products;
 
                 const productList: Array<Product> = productResponses.map(productResponse => {
-                    let result: Product = {
+                    const result: Product = {
                         id: productResponse._links.self.href,
                         name: productResponse.name,
                         description: productResponse.description,
@@ -36,7 +36,7 @@ export class ProductsService {
                 });
 
                 return productList;
-            });
+            })
 
 
     loadProductCategories = (): Observable<ProductCategory[]> =>
@@ -49,9 +49,9 @@ export class ProductsService {
                     return {
                         id: categoryResponse._links.self.href,
                         name: categoryResponse.name,
-                    }
+                    };
                 });
                 return categoryList;
-            });
+            })
 
 }

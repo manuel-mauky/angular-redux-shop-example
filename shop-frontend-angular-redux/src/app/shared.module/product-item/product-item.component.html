@@ -1,7 +1,16 @@
 <div class="panel panel-default root-container">
-    <div class="panel-body">
-        <h1>{{product.name}}</h1>
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-8">
+                <h2>{{product.name}}</h2>
+            </div>
+            <div class="col-md-4">
+                <ng-content></ng-content>
+            </div>
+        </div>
+    </div>
 
+    <div *ngIf="collapsed == false" class="panel-body">
         <div class="content-container">
             <div>
                 <img src="{{product.image}}" class="product-image"/>
@@ -14,11 +23,7 @@
                         {{category.name}}
                     </span>
                 </p>
-
-                <button (click)="addToCart()">Add to Cart</button>
             </div>
-
         </div>
-
     </div>
 </div>

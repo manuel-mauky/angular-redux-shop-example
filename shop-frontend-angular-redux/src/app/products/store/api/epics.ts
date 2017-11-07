@@ -1,26 +1,20 @@
-import { Injectable } from '@angular/core';
-import { Epic, createEpicMiddleware } from 'redux-observable';
-import { of } from 'rxjs/observable/of';
+import {Injectable} from '@angular/core';
+import {createEpicMiddleware, Epic} from 'redux-observable';
+import {of} from 'rxjs/observable/of';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/startWith';
-
-import {} from '../../model/products.types';
-import {
-    ProductActions, ProductAction, ProductCategoryActions,
-    ProductCategoryAction
-} from './actions';
+import {ProductAction, ProductActions, ProductCategoryAction, ProductCategoryActions} from './actions';
 import {ProductsService} from './service';
-import {AppState} from "../../../store/model";
+import {AppState} from '../../../store/model';
 
 @Injectable()
 export class ProductComponentEpics {
-    constructor(private service: ProductsService, private productsActions: ProductActions, private productCategoryActions: ProductCategoryActions){
+    constructor(private service: ProductsService, private productsActions: ProductActions, private productCategoryActions: ProductCategoryActions) {
     }
 
-    public createEpics()
-    {
+    public createEpics() {
         return [
             createEpicMiddleware(this.createLoadProductsEpic()),
             createEpicMiddleware(this.createLoadProductCategoriesEpic())

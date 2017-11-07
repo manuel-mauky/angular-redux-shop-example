@@ -1,4 +1,4 @@
-import { URI, ID, Href} from '../../model/common-types';
+import {Href, ID, URI} from './common-types';
 
 export type Product = {
     id: ID,
@@ -14,16 +14,16 @@ export type ProductWithFullCategories = Product & {
 }
 
 export type ProductRestResponse = {
-  name: string,
-  description: string,
-  imageUrl: URI,
-  price: number,
-  _links: {
-    self: Href,
-    product: Href,
-    productCategories: Array<Href>,
-    categories: Href
-  }
+    name: string,
+    description: string,
+    imageUrl: URI,
+    price: number,
+    _links: {
+        self: Href,
+        product: Href,
+        productCategories: Array<Href>,
+        categories: Href
+    }
 }
 
 export type ProductCategory = {
@@ -33,10 +33,10 @@ export type ProductCategory = {
 
 
 export type ProductCategoryRestResponse = {
-  name: string,
-  _links: {
-    self: Href,
-    productCategory: Href,
-    products: Href
-  }
+    name: string,
+    _links: {
+        self: Href,
+        productCategory: Href,
+        products: Href
+    }
 }

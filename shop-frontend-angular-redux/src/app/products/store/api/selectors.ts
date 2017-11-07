@@ -1,8 +1,8 @@
-import { AppState } from '../../../store/model';
-import { Product, ProductWithFullCategories} from '../../model/products.types';
-import  * as R from 'ramda';
-import { IdMap } from '../../../model/common-types';
-import {ProductCategoriesState, ProductsState} from "./reducer";
+import {AppState} from '../../../store/model';
+import {Product, ProductWithFullCategories} from '../../../model/products.types';
+import * as R from 'ramda';
+import {IdMap} from '../../../model/common-types';
+import {ProductCategoriesState, ProductsState} from './reducer';
 
 export function getProductsState(state: AppState): ProductsState {
     return state.productComponent.products;
@@ -23,7 +23,7 @@ export function allProducts(state: AppState): Array<ProductWithFullCategories> {
     const categories = getProcutCategoriesState(state).entities;
 
     return R.values(products).map(product => {
-        let productWithCategories = {...product, categories:[]};
+        const productWithCategories = {...product, categories: []};
 
         product.categoryIds.map(id => {
             productWithCategories.categories.push(categories[id]);
