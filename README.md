@@ -22,9 +22,7 @@ The backend uses [Spring boot](https://projects.spring.io/spring-boot/) and
 [Spring-data-rest](http://projects.spring.io/spring-data-rest/) to provide a simple REST api.
 
 This example was created for a talk about "angular+redux" that I gave at
-[JAX 2017](https://jax.de/session/angular-anwendungen-mit-redux/). You can find the slides (in german)
-[here (google docs)](https://docs.google.com/presentation/d/1JeRlmAw9v3RYmTZTzXyJHLTUshM1PY4zKazqBzNI384/edit?usp=sharing)
-or [here (pdf)](./angular_redux_manuel_mauky.pdf).
+several conferences. You can find the slides here: [german](./de_angular_redux_manuel_mauky.pdf), [english](en_angular_with_redux_manuel_mauky_jscon2017.pdf).
 
 ## Usecase
 The use case of this example app is a Shop that sells DVDs and Books. The web app loads all available
